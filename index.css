@@ -1,0 +1,297 @@
+:root {
+    --primary-color: rgb(183, 0, 255); /* Color oscuro para un diseño elegante */
+    --secondary-color: rgb(183, 0, 255); /* Color cálido y atractivo */
+    --background-color: #000000; /* Fondo oscuro para contraste */
+    --text-color: #ffffff; /* Texto claro para fácil lectura */
+    --transition-speed: 0.5s;
+  
+
+}
+
+
+  
+  /* Global */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: var(--font-family);
+    font-size: 18px;
+    font-family: 'Merriweather', serif;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+  }
+  
+  h1, p {
+    margin: 0;
+    color: rgb(255, 255, 255);
+  }
+  
+  a {
+    text-decoration: none;
+    color: black;
+  }
+  
+  /* Loader */
+  .loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(183, 0, 255);
+    display: flex;
+    box-shadow: 0px 0 15px rgb(0, 0, 0);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+  
+  .loader.hidden {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1s ease;
+  }
+  
+  /* Header */
+  header {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 25px 20px;
+    box-shadow: 0px 0 25px rgb(183, 0, 255);
+    transition: padding 0.3s ease;
+  }
+  
+  header h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  
+  /* Video Container */
+  .video-container {
+    position: relative;
+    max-width: 950px;
+    margin: 50px auto;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 0 30px rgb(183, 0, 255);
+    transform: scale(0.98);
+    transition: transform 0.4s ease;
+  }
+  
+  .video-container:hover {
+    transform: scale(1);
+  }
+  
+  .video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://via.placeholder.com/950x530') no-repeat center/cover;
+    z-index: -1;
+    filter: blur(15px);
+    opacity: 0.5;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+  }
+  
+  .video-container:hover .video-background {
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
+  
+  iframe {
+    width: 100%;
+    height: 500px;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  iframe:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Footer */
+  footer {
+    background-color: var(--secondary-color);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    z-index: 10;
+    box-shadow: 0px 0 25px rgb(183, 0, 255);  
+  }
+  
+  footer p {
+    font-size: 0.9rem;
+  }
+  
+  /* Animaciones */
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideUp {
+    0% {
+      transform: translateY(50px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  /* Elementos que entran desde abajo */
+  .animate-in {
+    animation: slideUp 1s ease-out forwards;
+  }
+
+
+/* Estilo para el botón de salida */
+.exit-button {
+    background-color: rgb(183, 0, 255);
+    color: white;
+    font-size: 18px;
+    font-family: 'Merriweather', serif;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0px 0 25px rgb(183, 0, 255);
+    transition: all 0.3s ease;
+    position: fixed; /* Cambio a fixed para que siempre esté en la misma posición incluso si se hace scroll */
+    bottom: 250px; /* Distancia desde el borde inferior */
+    left: 50%; /* Centramos el botón en el eje horizontal */
+    transform: translateX(-50%); /* Aseguramos que esté centrado */
+    z-index: 10;
+  }
+  
+  .exit-button:hover {
+    background-color: rgb(96, 0, 134); /* Color más oscuro al pasar el ratón */
+    transform: scale(1.05) translateX(-50%); /* Hace que el botón se agrande un poco */
+  }
+  
+  .exit-button:active {
+    background-color: #a93226; /* Cambio de color al hacer clic */
+    transform: scale(0.98) translateX(-50%); /* Hace que el botón se reduzca ligeramente al hacer clic */
+  }
+  
+  .exit-button:focus {
+    outline: none; /* Elimina el contorno al hacer clic */
+  }
+  
+  
+  
+
+  
+
+
+
+
+
+/* Responsive Design */
+
+/* Pantallas de hasta 1200px */
+@media only screen and (max-width: 1200px) {
+
+
+    body {
+        font-size: 16px;
+       margin-top: 180px;
+      }
+
+    header h1 {
+
+      font-size: 30px;
+    }
+  
+    .video-container {
+      max-width: 90%;
+    }
+  
+    iframe {
+      height: 450px;
+    }
+
+    .exit-button {
+     
+        bottom: 285px;
+      }
+  }
+  
+  /* Pantallas de hasta 768px (Tabletas) */
+  @media only screen and (max-width: 760px) {
+
+
+    body {
+        font-size: 16px;
+        margin-top: 180px;
+      }
+    
+
+
+    header h1 {
+       font-size: 25px;
+    }
+  
+    .video-container {
+      max-width: 100%;
+      margin: 30px auto;
+    }
+  
+    iframe {
+      height: 350px;
+    }
+  
+    .exit-button {
+      font-size: 16px;
+      padding: 12px 25px;
+      bottom: 300px;
+    }
+  }
+  
+  /* Pantallas de hasta 480px (Móviles pequeños) */
+  @media only screen and (max-width: 480px) {
+
+    body {
+      font-size: 16px;
+      margin-top: 180px;
+    }
+  
+    header h1 {
+        font-size: 19px;
+    }
+  
+    .video-container {
+      max-width: 100%;
+      margin: 20px auto;
+    }
+  
+    iframe {
+      height: 250px;
+    }
+  
+    .exit-button {
+      font-size: 14px;
+      padding: 10px 20px;
+      bottom: 340px;
+    }
+  }
